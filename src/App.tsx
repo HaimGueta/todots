@@ -1,9 +1,14 @@
 import React from 'react'
 import './App.css'
+// import Home from './Home'
+
 
 const App: React.FC = () => {
+  
   return (
-    <div>haimguetffffffffa</div>
+    <div>
+      {/* <Home></Home> */}l
+    </div>
   )
 }
 
