@@ -2,8 +2,14 @@
 import axios from 'axios'
 import  { useState, useEffect } from 'react';
 
+interface Post {
+  _id: string;
+  // Other properties of your post object
+}
+
 const Home = () => {
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [show, setShow] = useState(true);
 
   useEffect(()=>{
     
@@ -23,10 +29,20 @@ const Home = () => {
   if (posts.length === 0) {
     return <div>Loading...</div>;
   }
-  
+
   return (
     <div>
-      {posts[0]._id}
+      <button onClick={()=>{
+        setShow(!show)
+      }}>
+        show or hiden
+      </button>
+
+      {show && posts.map((p)=>{
+        return(
+          <li key={p._id}>{p._id}</li>
+        )
+      })}
     </div>
   )
 }
