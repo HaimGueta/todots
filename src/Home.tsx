@@ -15,8 +15,8 @@ const Home = () => {
     
     const getallposts = async ()=>{
       try{
-        const res = await axios.get(`http://localhost:5050/posts?page=0&search=&salary=`)
-        setPosts(res.data)
+        let res = await axios.get(`http://localhost:5050/posts?page=0&search=&salary=`)
+        .then((res)=>setPosts(res.data))
       }
       catch(err){
         console.log(err)
@@ -26,9 +26,9 @@ const Home = () => {
     
   },[])
 
-  if (posts.length === 0) {
-    return <div>Loading...</div>;
-  }
+  // if (posts.length === 0) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <div>
