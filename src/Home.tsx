@@ -10,12 +10,13 @@ interface Post {
 const Home = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [show, setShow] = useState(true);
+  let res;
 
   useEffect(()=>{
     
     const getallposts = async ()=>{
       try{
-        let res = await axios.get(`http://localhost:5050/posts?page=0&search=&salary=`)
+        res = await axios.get(`http://localhost:5050/posts?page=0&search=&salary=`)
         .then((res)=>setPosts(res.data))
       }
       catch(err){
